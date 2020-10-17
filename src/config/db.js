@@ -2,6 +2,7 @@ const { Sequelize } = require('sequelize');
 
 class Db {
 
+    
     constructor(){
         const sequelize = new Sequelize('mercadolist', 'root', '', {
             host: 'localhost',

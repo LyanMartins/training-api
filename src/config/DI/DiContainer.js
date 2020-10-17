@@ -23,7 +23,7 @@ class DiContainer {
  
   get = (name) => {
     if (!this.dependencies[name]) {
-      const factory = new this.factories[name];
+      const factory = this.factories[name];
       this.dependencies[name] = factory && this.inject(factory);
       if (!this.dependencies[name]) throw new Error(`Cannot find module ${name}`);
     }

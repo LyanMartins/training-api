@@ -9,11 +9,10 @@ class Init {
     constructor() {
 
         const app = express();
-        console.log("1");
+        new Db;
         console.log(resolver);
-        
-        console.log("1");
-        app.use('/',new Routes(resolver));
+        app.use(express.json())
+        app.use('/', new Routes(resolver));
 
         app.listen(3000, () => {
             console.log('Servidor rodando na porta 3000...')

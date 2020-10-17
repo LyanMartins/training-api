@@ -1,16 +1,32 @@
 
 class ListController {
     
-    constructor({ GetList }) {
-        this.GetList = GetList;
-    }
-
-    getList = function (req, res) {
-        console.log(this.GetList);
-        res.send({"ok":'true'});
-    }
+    constructor({ GetList, CreateList, UpdateList, ListEntity, Repository, InputListPresenter }) {
+        this.GetList = new GetList(Repository);
+        this.CreateList = new CreateList(Repository);
+        this.UpdateList = new UpdateList(Repository);
+        this.InputListPresenter = InputListPresenter;
+        this.ListEntity = ListEntity;
         
+    }
 
+    get = async function (req, res) {
+        let list = await this.GetList.execute();
+        return res.json(list);
+    }
+
+    create = async function (req, res) {
+        let request = new this.InputListPresenter(req.body.title);
+        let list = await this.CreateList.execute(new this.ListEntity(request));
+        return res.json(list);
+    }
+    
+    update = async function (req, res) {
+        let request = new this.InputListPresenter(req.body.title);
+        console.log(this.UpdateList);
+        let list = await this.UpdateList.execute(new this.ListEntity(request), req.params.token)
+        return res.json(list);
+    }
 }
 
 module.exports = ListController;

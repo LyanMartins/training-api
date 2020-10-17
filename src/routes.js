@@ -1,12 +1,27 @@
 const { Router } = require('express');
 const routes = require('express').Router();
-const { ListController } = require('../src/config/DI/Resolver');
 
 class Routes extends Router {
     
     constructor(Resolver){
-        super();  
-        return routes.get('/', (req, res) => { new Resolver.ListController(Resolver).getList(req, res) })
+        super();
+        this.Controller = Resolver.Controller;
+        return this.prepareRoutes(Resolver.Feature)
+    }
+
+    prepareRoutes = function(feature) {
+        routes.route('/list/(:token)?')
+            .get( (req, res) => { 
+                new this.Controller.ListController(feature.List).get(req, res) 
+            })
+            .post( (req, res) => {
+                new this.Controller.ListController(feature.List).create(req, res) 
+            })
+            .put( (req, res) =>[
+                new this.Controller.ListController(feature.List).update(req, res)
+            ]) 
+        return routes;
+        
     }
 }
 
