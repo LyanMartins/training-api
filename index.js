@@ -15,7 +15,7 @@ class Init {
         app.use('/', new Routes(resolver));
 
         app.listen(process.env.PORT || 3000, () => {
-            console.log('Servidor rodando na porta 3000...')
+            console.log('Servidor rodando na porta 3000...'+process.env.PORT)
         });
     }
 
