@@ -8,7 +8,7 @@ class ListRepository {
     }
 
     getAllList = async function() {
-        return await this.ListModel.findAll({ where: { in_actived: 1 }});
+        return await this.ListModel.findAll({ where: { in_actived: true }});
     }
 
     getList = async function(listToken) {
@@ -36,7 +36,7 @@ class ListRepository {
     }    
 
     deleteList = async function (listToken) {
-        let list = await this.ListModel.update({ in_actived: '0' },{
+        let list = await this.ListModel.update({ in_actived: false },{
             where: { token: listToken }
         });
         
