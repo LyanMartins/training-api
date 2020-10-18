@@ -16,7 +16,6 @@ class CreateList {
         
         if(!input.title)
             throw new Error('title is null');
-
     }
 }
 

@@ -5,7 +5,7 @@ class GetList {
     }
 
     execute() {
-        let list = this.ListRepository.getList();
+        let list = this.ListRepository.getAllList();
         return list;
     }
 

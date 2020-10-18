@@ -8,10 +8,13 @@ class List extends Model {}
 
 List.init({
     title: {
-      type: DataTypes.STRING,
+      type: DataTypes.STRING
     },
     token: {
       type: DataTypes.STRING
+    },
+    in_actived: {
+      type: DataTypes.BOOLEAN
     }
   },{
     sequelize,

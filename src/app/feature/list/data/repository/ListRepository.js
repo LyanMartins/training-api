@@ -2,13 +2,17 @@ const { nanoid } = require('nanoid')
 
 class ListRepository {
     
-    constructor({ListModel}){
+    constructor({ ListModel }){
         this.ListModel = ListModel;
         console.log("repository");
     }
 
-    getList = async function() {
-        return await this.ListModel.findAll();
+    getAllList = async function() {
+        return await this.ListModel.findAll({ where: { in_actived: 1 }});
+    }
+
+    getList = async function(listToken) {
+        return await this.ListModel.findOne({ where: { token: listToken } });
     }
 
     createList = async function (list) {
@@ -18,7 +22,6 @@ class ListRepository {
     }
 
     updateList = async function (newList, listToken) {
-
         let list =  await this.ListModel.findOne({ where: { token: listToken } });
 
         if(!list) return false;
@@ -30,8 +33,15 @@ class ListRepository {
         });
         
         return list;
+    }    
+
+    deleteList = async function (listToken) {
+        let list = await this.ListModel.update({ in_actived: '0' },{
+            where: { token: listToken }
+        });
+        
+        return list;
     }
-    
 }
 
 module.exports = ListRepository;

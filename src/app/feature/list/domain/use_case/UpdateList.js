@@ -4,7 +4,6 @@ class UpdateList {
         this.ListRepository = new ListRepository(Models)
     }
 
-
     execute = async function (input, listToken) {
         this.validation(input, listToken);
 

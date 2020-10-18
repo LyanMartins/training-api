@@ -17,9 +17,12 @@ class Routes extends Router {
             .post( (req, res) => {
                 new this.Controller.ListController(feature.List).create(req, res) 
             })
-            .put( (req, res) =>[
+            .put( (req, res) =>{
                 new this.Controller.ListController(feature.List).update(req, res)
-            ]) 
+            })
+            .delete( (req, res) => {
+                new this.Controller.ListController(feature.List).delete(req, res)
+            })
         return routes;
         
     }
