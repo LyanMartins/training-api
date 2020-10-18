@@ -10,7 +10,7 @@ class Routes extends Router {
     }
 
     prepareRoutes = function(feature) {
-        routes.route('/list/(:token)?')
+        routes.route('/list/:token?')
             .get( (req, res) => { 
                 new this.Controller.ListController(feature.List).get(req, res) 
             })
