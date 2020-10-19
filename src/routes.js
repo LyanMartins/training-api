@@ -23,6 +23,12 @@ class Routes extends Router {
             .delete( (req, res) => {
                 new this.Controller.ListController(feature.List).delete(req, res)
             })
+
+        routes.route('/item/:token?')
+            .get( (req, res) => {
+                console.log(feature);
+                new this.Controller.ItemController(feature.Item).get(req, res)
+            })
         return routes;
         
     }
