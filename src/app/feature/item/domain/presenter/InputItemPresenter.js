@@ -1,22 +1,22 @@
 
-class ItemEntity {
+class InputItemPresenter {
 
     title;
     price;
     quantity;
     checked;
-    token;
-    inActived;
-    list;
+    in_actived;	
+    created_at;
 
     constructor(input) {
         this.title = input.title;
         this.price = input.price;
         this.quantity = input.quantity;
         this.checked = input.checked;
-        this.inActived = input.inActived;
+        this.in_actived = input.in_actived;
+        this.created_at = input.created_at;
     }
 
 }
 
-module.exports = ItemEntity;
+module.exports = InputItemPresenter;

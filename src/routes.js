@@ -26,8 +26,13 @@ class Routes extends Router {
 
         routes.route('/item/:token?')
             .get( (req, res) => {
-                console.log(feature);
                 new this.Controller.ItemController(feature.Item).get(req, res)
+            })
+            .post( (req, res) => {
+                new this.Controller.ItemController(feature.Item).create(req, res)
+            })
+            .put( (req, res) => {
+                new this.Controller.ItemController(feature.Item).update(req, res)
             })
         return routes;
         
