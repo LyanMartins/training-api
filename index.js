@@ -1,5 +1,5 @@
 const express = require('express');
-const Db = require('./src/config/db');
+const { Db } = require('./src/config/db');
 
 const { Routes, ListController } = require('./src/config/DI/Resolver');
 const resolver = require('./src/config/DI/Resolver');
@@ -9,7 +9,7 @@ class Init {
     constructor() {
 
         const app = express();
-        new Db;
+        new Db();
         console.log(resolver);
         app.use(express.json())
         app.use('/', new Routes(resolver));

@@ -36,6 +36,7 @@ class ListRepository {
     }    
 
     deleteList = async function (listToken) {
+        
         let list = await this.ListModel.update({ in_actived: false },{
             where: { token: listToken }
         });

@@ -22,7 +22,22 @@ class Routes extends Router {
             })
             .delete( (req, res) => {
                 new this.Controller.ListController(feature.List).delete(req, res)
+            });
+
+        routes.route('/item/:token?')
+            .get( (req, res) => {
+                new this.Controller.ItemController(feature.Item).get(req, res)
             })
+            .post( (req, res) => {
+                new this.Controller.ItemController(feature.Item).create(req, res)
+            })
+            .put( (req, res) => {
+                new this.Controller.ItemController(feature.Item).update(req, res)
+            })
+            .delete( (req, res) => {
+                new this.Controller.ItemController(feature.Item).delete(req, res)
+            });
+
         return routes;
         
     }
