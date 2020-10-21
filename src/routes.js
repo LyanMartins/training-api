@@ -22,7 +22,7 @@ class Routes extends Router {
             })
             .delete( (req, res) => {
                 new this.Controller.ListController(feature.List).delete(req, res)
-            })
+            });
 
         routes.route('/item/:token?')
             .get( (req, res) => {
@@ -34,6 +34,13 @@ class Routes extends Router {
             .put( (req, res) => {
                 new this.Controller.ItemController(feature.Item).update(req, res)
             })
+            .delete( (req, res) => {
+                new this.Controller.ItemController(feature.Item).delete(req, res)
+            });
+
+        route.get('/list/:token/checked', (req, res) => {
+            new this.Controller.ItemController(feature.Item).checked(req, res)
+        })
         return routes;
         
     }

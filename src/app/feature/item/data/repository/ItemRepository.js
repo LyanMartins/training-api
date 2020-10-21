@@ -52,6 +52,16 @@ class ItemRepository {
         
         return item;
     }
+
+    deleteItem = async function(itemToken) {
+        
+        let item = await this.ItemModel.update({ in_actived: false },{
+            where: { token: itemToken }
+        });
+        
+        return item;
+
+    }
     
 
 }
