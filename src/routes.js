@@ -38,9 +38,6 @@ class Routes extends Router {
                 new this.Controller.ItemController(feature.Item).delete(req, res)
             });
 
-        route.get('/list/:token/checked', (req, res) => {
-            new this.Controller.ItemController(feature.Item).checked(req, res)
-        })
         return routes;
         
     }
