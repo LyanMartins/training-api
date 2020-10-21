@@ -39,7 +39,6 @@ class ItemController {
 
     delete = async function (req, res) {
 
-        console.log(req.params.token);
         let item = await this.DeleteItem.execute(req.params.token);
         res.json(item);
     }
