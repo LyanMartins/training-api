@@ -4,11 +4,13 @@ class ItemController {
     constructor({ 
         GetItem, 
         CreateItem,
+        UpdateItem,
         Repository,
         InputItemPresenter 
     }){
         this.GetItem = new GetItem(Repository)
         this.CreateItem = new CreateItem(Repository)
+        this.UpdateItem = new UpdateItem(Repository)
         this.InputItemPresenter = InputItemPresenter;
     }
 
@@ -22,6 +24,14 @@ class ItemController {
 
         let input  = new this.InputItemPresenter(req.body);
         let item = await this.CreateItem.execute(input, req.params.token);
+        res.json(item);
+    }
+
+    update = async function (req, res) {
+
+        let input  = new this.InputItemPresenter(req.body);
+        let item = await this.UpdateItem.execute(input, req.params.token);
+
         res.json(item);
     }
 

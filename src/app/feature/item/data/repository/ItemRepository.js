@@ -23,6 +23,7 @@ class ItemRepository {
     createItem =  async function(item, listToken) {
 
         let list = await this.ListModel.findOne({ where: { token:listToken }});
+        if(!list) return false;
 
         item.ListId = list.id;
 
@@ -36,6 +37,22 @@ class ItemRepository {
 
         return newItem;
     }
+
+    updateItem = async function (item, itemToken) {
+
+        let getItem =  await this.ItemModel.findOne({ where: { token: itemToken } });
+        console.log(getItem);
+        if(!getItem) return false;
+
+        item.token = getItem.token;
+
+        item = await this.ItemModel.update( item, {
+            where: { token: itemToken }
+        });
+        
+        return item;
+    }
+    
 
 }
 

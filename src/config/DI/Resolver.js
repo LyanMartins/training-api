@@ -20,6 +20,7 @@ diContainer.register('InputListPresenter', require('../../app/feature/list/domai
 diContainer.register('ItemController', require('../../app/controller/ItemController'));
 diContainer.register('GetItem', require('../../app/feature/item/domain/use_case/GetItem'));
 diContainer.register('CreateItem', require('../../app/feature/item/domain/use_case/CreateItem'));
+diContainer.register('UpdateItem', require('../../app/feature/item/domain/use_case/UpdateItem'));
 diContainer.register('ItemRepository', require('../../app/feature/item/data/repository/ItemRepository'));
 diContainer.register('ItemModel', require('../../app/feature/item/data/models/ItemModel'));
 diContainer.register('ItemEntity', require('../../app/feature/item/domain/entity/ItemEntity'));
@@ -37,6 +38,7 @@ const UpdateList = diContainer.get('UpdateList');
 const DeleteList = diContainer.get('DeleteList');
 const GetItem = diContainer.get('GetItem');
 const CreateItem = diContainer.get('CreateItem');
+const UpdateItem = diContainer.get('UpdateItem');
 // Repository
 const ListRepository = diContainer.get('ListRepository');
 const ItemRepository = diContainer.get('ItemRepository');
@@ -77,6 +79,7 @@ const Feature = {
     Item: {
         GetItem,
         CreateItem,
+        UpdateItem,
         ItemEntity,
         InputItemPresenter,
         Repository : {
