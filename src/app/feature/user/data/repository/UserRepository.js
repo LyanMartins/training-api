@@ -5,6 +5,7 @@ class UserRepository {
     }
 
     create = function(user) {
+        user.create = Date.now();
         return user;
     }
 }

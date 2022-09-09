@@ -4,6 +4,8 @@ class UserPresent {
     name;
     email;
     password;
+    created;
+    modifield;
     deleted;
 
     constructor(input) 
@@ -11,6 +13,8 @@ class UserPresent {
         this.name = input.name;
         this.email = input.email;
         this.password = input.password;
+        this.created = input?.created;
+        this.modifield = input?.modifield;
         this.deleted = input?.deleted;
     }
 
