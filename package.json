@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js"
+    "start": "node index.js",
+    "dev": "nodemon index.js"
   },
   "author": "",
   "license": "ISC",
@@ -14,6 +15,7 @@
     "express": "^4.17.1",
     "mysql2": "^2.2.5",
     "nanoid": "^3.1.12",
+    "nodemon": "^2.0.19",
     "parse-function": "^5.6.10",
     "pg": "^8.4.1",
     "pg-hstore": "^2.3.3",

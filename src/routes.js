@@ -37,6 +37,11 @@ class Routes extends Router {
             .delete( (req, res) => {
                 new this.Controller.ItemController(feature.Item).delete(req, res)
             });
+        
+        routes.route('/user/:token?')
+            .post( (req, res) => {
+                new this.Controller.UserController().create(req, res);
+            });
 
         return routes;
         

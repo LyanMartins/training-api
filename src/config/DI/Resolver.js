@@ -27,73 +27,88 @@ diContainer.register('ItemModel', require('../../app/feature/item/data/models/It
 diContainer.register('ItemEntity', require('../../app/feature/item/domain/entity/ItemEntity'));
 diContainer.register('InputItemPresenter', require('../../app/feature/item/domain/presenter/InputItemPresenter'));
 
+//user
+diContainer.register('UserController', require('../../app/controller/UserController'));
+diContainer.register('UserRepository', require('../../app/feature/user/data/repository/UserRepository'));
+diContainer.register('UserModel', require('../../app/feature/user/data/models/UserModel'));
+diContainer.register('UserEntity', require('../../app/feature/user/domain/entity/UserEntity'));
+diContainer.register('UserPresent', require('../../app/feature/user/domain/present/UserPresent'));
+diContainer.register('CreateUser', require('../../app/feature/user/domain/use_case/CreateUser'));
 
 const Routes = diContainer.get('Routes');
-// Controller
-const ListController = diContainer.get('ListController');
-const ItemController = diContainer.get('ItemController');
-// USE CASE
-const GetList = diContainer.get('GetList');
-const CreateList = diContainer.get('CreateList');
-const UpdateList = diContainer.get('UpdateList');
-const DeleteList = diContainer.get('DeleteList');
-const GetItem = diContainer.get('GetItem');
-const CreateItem = diContainer.get('CreateItem');
-const UpdateItem = diContainer.get('UpdateItem');
-const DeleteItem = diContainer.get('DeleteItem');
-// Repository
-const ListRepository = diContainer.get('ListRepository');
-const ItemRepository = diContainer.get('ItemRepository');
-// Models
-const ListModel = diContainer.get('ListModel');
-const ItemModel = diContainer.get('ItemModel');
-// Entity
-const ListEntity = diContainer.get('ListEntity');
-const ItemEntity = diContainer.get('ItemEntity');
-// Presenter
-const InputListPresenter = diContainer.get('InputListPresenter');
-const InputItemPresenter = diContainer.get('InputItemPresenter');
+// // Controller
+// const ListController = diContainer.get('ListController');
+// const ItemController = diContainer.get('ItemController');
+// // USE CASE
+// const GetList = diContainer.get('GetList');
+// const CreateList = diContainer.get('CreateList');
+// const UpdateList = diContainer.get('UpdateList');
+// const DeleteList = diContainer.get('DeleteList');
+// const GetItem = diContainer.get('GetItem');
+// const CreateItem = diContainer.get('CreateItem');
+// const UpdateItem = diContainer.get('UpdateItem');
+// const DeleteItem = diContainer.get('DeleteItem');
+// // Repository
+// const ListRepository = diContainer.get('ListRepository');
+// const ItemRepository = diContainer.get('ItemRepository');
+// // Models
+// const ListModel = diContainer.get('ListModel');
+// const ItemModel = diContainer.get('ItemModel');
+// // Entity
+// const ListEntity = diContainer.get('ListEntity');
+// const ItemEntity = diContainer.get('ItemEntity');
+// // Presenter
+// const InputListPresenter = diContainer.get('InputListPresenter');
+// const InputItemPresenter = diContainer.get('InputItemPresenter');
 
 
 const Controller = {
-    ListController,
-    ItemController
+    ListController: diContainer.get('ListController'),
+    ListController: diContainer.get('ListController'),
+    UserController: diContainer.get('UserController')
 }
 
-const Models = {
-    ListModel,
-    ItemModel
-}
+// const Models = {
+//     ListModel,
+//     ItemModel
+// }
 
-const Feature = {
-    List: {
-        GetList,
-        CreateList,
-        ListEntity,
-        UpdateList,
-        DeleteList,
-        InputListPresenter,
-        Repository : {
-            ListRepository,
-            Models
-        }
-    },
-    Item: {
-        GetItem,
-        CreateItem,
-        UpdateItem,
-        DeleteItem,
-        ItemEntity,
-        InputItemPresenter,
-        Repository : {
-            ItemRepository,
-            Models
-        }
-    }
+// const Feature = {
+//     List: {
+//         GetList,
+//         CreateList,
+//         ListEntity,
+//         UpdateList,
+//         DeleteList,
+//         InputListPresenter,
+//         Repository : {
+//             ListRepository,
+//             Models
+//         }
+//     },
+//     Item: {
+//         GetItem,
+//         CreateItem,
+//         UpdateItem,
+//         DeleteItem,
+//         ItemEntity,
+//         InputItemPresenter,
+//         Repository : {
+//             ItemRepository,
+//             Models
+//         }
+//     },
+//     User: {
+//         UserPresent: diContainer.get('UserPresent'),
+//         CreateUser: diContainer.get('CreateUser')
+//     }
+// }
+
+get = function(dependence) {
+    return diContainer.get(dependence)
 }
 
 module.exports = {
     Routes,
-    Controller, 
-    Feature,
+    Controller
 }
