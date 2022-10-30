@@ -35,6 +35,15 @@ diContainer.register('UserEntity', require('../../app/feature/user/domain/entity
 diContainer.register('UserPresent', require('../../app/feature/user/domain/present/UserPresent'));
 diContainer.register('CreateUser', require('../../app/feature/user/domain/use_case/CreateUser'));
 
+// Workout
+diContainer.register('WorkoutController', require('../../app/controller/WorkoutController'));
+diContainer.register('WorkoutRepository', require('../../app/feature/workout/data/repository/WorkoutRepository'));
+diContainer.register('WorkoutModel', require('../../app/feature/workout/data/models/WorkoutModel'));
+diContainer.register('WorkoutEntity', require('../../app/feature/workout/domain/entity/WorkoutEntity'));
+diContainer.register('WorkoutPresent', require('../../app/feature/workout/domain/present/WorkoutPresent'));
+diContainer.register('CreateWorkout', require('../../app/feature/workout/domain/use_case/CreateWorkout'));
+
+
 const Routes = diContainer.get('Routes');
 // // Controller
 // const ListController = diContainer.get('ListController');
@@ -64,8 +73,8 @@ const Routes = diContainer.get('Routes');
 
 const Controller = {
     ListController: diContainer.get('ListController'),
-    ListController: diContainer.get('ListController'),
-    UserController: diContainer.get('UserController')
+    UserController: diContainer.get('UserController'),
+    WorkoutController: diContainer.get('WorkoutController')
 }
 
 // const Models = {

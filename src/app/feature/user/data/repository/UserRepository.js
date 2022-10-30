@@ -1,12 +1,12 @@
 class UserRepository {
 
-    constructor() {
-        console.log('repository');
+    constructor(UserModel = get('UserModel')) {
+        this.userModel = UserModel;
     }
 
     create = function(user) {
         user.create = Date.now();
-        return user;
+        return this.userModel.create(user);
     }
 }
 

@@ -17,7 +17,9 @@ Item.init({
     timestamps: true,
     raw: true,
     tableName: 'users',
-    modelName: 'User' // We need to choose the model name
+    modelName: 'User', // We need to choose the model name
+    createdAt: "created",
+    updatedAt: "modifield"
 });
 
 module.exports = Item;

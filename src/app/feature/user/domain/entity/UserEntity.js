@@ -15,6 +15,7 @@ class UserEntity {
         this.modifield = input.modifield;
         this.deleted = input.deleted;
     }
+    
 }
 
 module.exports = UserEntity;
