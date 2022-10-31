@@ -1,4 +1,5 @@
 const { Router } = require('express');
+const AuthMiddeware = require('./app/middleware/AuthMiddleware');
 const routes = require('express').Router();
 
 class Routes extends Router {
@@ -47,6 +48,12 @@ class Routes extends Router {
             .post( (req, res) => {
                 new this.Controller.WorkoutController().create(req, res);
             });
+
+        routes.route('/health')
+            .get( new AuthMiddeware().auth, (req, res) => {
+                
+                return res.send(req.user);
+            })
 
         return routes;
         
