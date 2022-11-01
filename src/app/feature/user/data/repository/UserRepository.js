@@ -8,6 +8,17 @@ class UserRepository {
         user.create = Date.now();
         return this.userModel.create(user);
     }
+
+    getUserByUsernameAndPassword = function(email, password) {
+        let user = this.userModel.findOne({
+            where: {
+                email: email,
+                password: password
+            }
+        });
+        
+        return user;
+    }
 }
 
 module.exports = UserRepository;

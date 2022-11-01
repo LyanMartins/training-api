@@ -33,7 +33,9 @@ diContainer.register('UserRepository', require('../../app/feature/user/data/repo
 diContainer.register('UserModel', require('../../app/feature/user/data/models/UserModel'));
 diContainer.register('UserEntity', require('../../app/feature/user/domain/entity/UserEntity'));
 diContainer.register('UserPresent', require('../../app/feature/user/domain/present/UserPresent'));
+diContainer.register('LoginPresent', require('../../app/feature/user/domain/present/LoginPresent'));
 diContainer.register('CreateUser', require('../../app/feature/user/domain/use_case/CreateUser'));
+diContainer.register('Login', require('../../app/feature/user/domain/use_case/Login'));
 
 // Workout
 diContainer.register('WorkoutController', require('../../app/controller/WorkoutController'));

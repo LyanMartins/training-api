@@ -43,6 +43,11 @@ class Routes extends Router {
             .post( (req, res) => {
                 new this.Controller.UserController().create(req, res);
             });
+            
+        routes.route('/login')
+            .get( (req, res) => {
+                new this.Controller.UserController().login(req, res);
+            });
         
         routes.route('/workout/:token?')
             .post( (req, res) => {
