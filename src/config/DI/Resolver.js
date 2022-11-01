@@ -44,6 +44,7 @@ diContainer.register('WorkoutModel', require('../../app/feature/workout/data/mod
 diContainer.register('WorkoutEntity', require('../../app/feature/workout/domain/entity/WorkoutEntity'));
 diContainer.register('WorkoutPresent', require('../../app/feature/workout/domain/present/WorkoutPresent'));
 diContainer.register('CreateWorkout', require('../../app/feature/workout/domain/use_case/CreateWorkout'));
+diContainer.register('GetWorkout', require('../../app/feature/workout/domain/use_case/GetWorkout'));
 
 
 const Routes = diContainer.get('Routes');

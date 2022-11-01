@@ -9,6 +9,14 @@ class WorkoutRepository {
         console.log(workout);
         return this.workoutModel.create(workout);
     }
+
+    getWorkoutById = function(workoutId) {
+        return this.workoutModel.findOne({
+            where: {
+                id: workoutId
+            }
+        })
+    }
 }
 
 module.exports = WorkoutRepository;
