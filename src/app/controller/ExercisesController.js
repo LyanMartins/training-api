@@ -8,12 +8,26 @@ class ExercisesController {
         this.exercisesPresent = ExercisesPresent;
     }
 
-    create = async function(req, res) {
+    create = async function(req, res) 
+    {
         try{
             let params = new this.exercisesPresent(req.body);
             res.json(await new this.createExercises().execute(params.toEntity()));
         }catch(e) {
             res.status(400).json(e.message)
+        }
+    }
+
+    get = async function (req, res) {
+        
+    }
+
+    list = async function(req, res) 
+    {
+        try {
+            console.log(req.params.workoutId)
+        } catch (e) {
+            res.status(400).json(e.message);
         }
     }
 

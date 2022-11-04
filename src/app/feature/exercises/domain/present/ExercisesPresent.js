@@ -12,8 +12,8 @@ class ExercisesPresent {
         this.title = input.title;
         this.serie = input.serie;
         this.repetition = input.repetition;
-        this.modifield = input?.modifield;
-        this.deleted = input?.deleted;        
+        this.modifield = input.modifield;
+        this.deleted = input.deleted;        
     }
     
     toEntity = function(ExercisesEntity = get('ExercisesEntity')) {

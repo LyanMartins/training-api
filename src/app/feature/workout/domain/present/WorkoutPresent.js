@@ -14,9 +14,9 @@ class WorkoutPresent
         this.userId = input.userId;
         this.title = input.title;
         this.modifield = input.modifield;
-        this.deleted = input?.deleted;
-        this.created = input?.created;
-        this.breakTime = input?.breakTime;
+        this.deleted = input.deleted;
+        this.created = input.created;
+        this.breakTime = input.breakTime;
     }
 
     toEntity = function(WorkoutEntity = get('WorkoutEntity')) {

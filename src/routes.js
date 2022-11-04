@@ -7,37 +7,10 @@ class Routes extends Router {
     constructor(Resolver){
         super();
         this.Controller = Resolver.Controller;
-        return this.prepareRoutes(Resolver.Feature)
+        return this.prepareRoutes()
     }
 
-    prepareRoutes = function(feature) {
-        routes.route('/list/:token?')
-            .get( (req, res) => { 
-                new this.Controller.ListController(feature.List).get(req, res) 
-            })
-            .post( (req, res) => {
-                new this.Controller.ListController(feature.List).create(req, res) 
-            })
-            .put( (req, res) =>{
-                new this.Controller.ListController(feature.List).update(req, res)
-            })
-            .delete( (req, res) => {
-                new this.Controller.ListController(feature.List).delete(req, res)
-            });
-
-        routes.route('/item/:token?')
-            .get( (req, res) => {
-                new this.Controller.ItemController(feature.Item).get(req, res)
-            })
-            .post( (req, res) => {
-                new this.Controller.ItemController(feature.Item).create(req, res)
-            })
-            .put( (req, res) => {
-                new this.Controller.ItemController(feature.Item).update(req, res)
-            })
-            .delete( (req, res) => {
-                new this.Controller.ItemController(feature.Item).delete(req, res)
-            });
+    prepareRoutes = function() {
         
         routes.route('/user/:token?')
             .post( (req, res) => {
@@ -57,9 +30,12 @@ class Routes extends Router {
                 new this.Controller.WorkoutController().get(req, res);
             });
 
-        routes.route('/exercises/:workoutId?')
+        routes.route('/exercises/:token?')
             .post( (req, res) => {
                 new this.Controller.ExercisesController().create(req, res);
+            })
+            .get( (req, res) => {
+                new this.Controller.ExercisesController().get(req, res);
             });
 
         routes.route('/health')

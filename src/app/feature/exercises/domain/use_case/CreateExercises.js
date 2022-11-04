@@ -17,7 +17,6 @@ class CreateExercises {
     }
 
     validated = function(params){
-        console.log(params);
         if(!params.workoutId) return false
 
         return true;

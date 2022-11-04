@@ -13,9 +13,9 @@ class UserPresent {
         this.name = input.name;
         this.email = input.email;
         this.password = input.password;
-        this.created = input?.created;
-        this.modifield = input?.modifield;
-        this.deleted = input?.deleted;
+        this.created = input.created;
+        this.modifield = input.modifield;
+        this.deleted = input.deleted;
     }
 
     toEntity = function(UserEntity = get('UserEntity')) {

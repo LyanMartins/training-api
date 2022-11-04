@@ -15,9 +15,9 @@ class ExercisesEntity {
         this.title = input.title;
         this.serie = input.serie;
         this.repetition = input.repetition;
-        this.created = input?.created;
-        this.modifield = input?.modifield;
-        this.deleted = input?.deleted; 
+        this.created = input.created;
+        this.modifield = input.modifield;
+        this.deleted = input.deleted; 
     }
     
 }
