@@ -1,7 +1,9 @@
 class GetExercises 
 {
-    constructor() {
-
+    constructor(
+        ExercisesRepository = get('ExercisesRepository')
+    ) {
+        this.exercisesRepository = ExercisesRepository;
     }
 
     execute = async function(exercisesId) 
@@ -9,6 +11,11 @@ class GetExercises
         let validated = this.validated(exercisesId);
         
         if(!validated) throw new Error('Fields are not valid');
+
+        let exercise = new this.exercisesRepository().getExercisesById(exercisesId);
+
+        return exercise;
+
     }
 
     validated = function(execisesId)

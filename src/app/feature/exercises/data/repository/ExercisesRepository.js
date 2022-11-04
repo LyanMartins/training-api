@@ -12,6 +12,15 @@ class ExercisesRepository {
         return this.exercisesModel.create(exercises);
     }
 
+    getExercisesById = function(execisesId)
+    {
+        return this.exercisesModel.findOne({
+            where: {
+                id: execisesId
+            }
+        })
+    }
+
     listAllExercisesByWorkoutId = function(workoutId) 
     {
         return this.exercisesModel.findAll({

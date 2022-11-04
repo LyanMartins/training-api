@@ -30,7 +30,7 @@ class Routes extends Router {
                 new this.Controller.WorkoutController().get(req, res);
             });
 
-        routes.route('/exercises/:token?')
+        routes.route('/exercises/:exercisesId?')
             .post( (req, res) => {
                 new this.Controller.ExercisesController().create(req, res);
             })

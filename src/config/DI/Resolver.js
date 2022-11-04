@@ -33,7 +33,7 @@ diContainer.register('ExercisesModel', require('../../app/feature/exercises/data
 diContainer.register('ExercisesEntity', require('../../app/feature/exercises/domain/entity/ExercisesEntity'));
 diContainer.register('ExercisesPresent', require('../../app/feature/exercises/domain/present/ExercisesPresent'));
 diContainer.register('CreateExercises', require('../../app/feature/exercises/domain/use_case/CreateExercises'));
-// diContainer.register('GetExercises', require('../../app/feature/exercises/domain/use_case/GetWorkout'));
+diContainer.register('GetExercises', require('../../app/feature/exercises/domain/use_case/GetExercises'));
 
 const Routes = diContainer.get('Routes');
 
