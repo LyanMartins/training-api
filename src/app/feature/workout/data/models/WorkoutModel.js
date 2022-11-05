@@ -1,9 +1,11 @@
 
 const { Sequelize, DataTypes, Model } = require('sequelize');
 const Exercises = require('../../../exercises/data/models/ExercisesModel');
-const { sequelize }  = require('./../../../../../config/db');
+const { Db }  = require('./../../../../../config/db');
 
 class Workout extends Model {}
+
+const sequelize = new Db().database()
 
 Workout.init({
     id:  { type: DataTypes.UUID, primaryKey: true },

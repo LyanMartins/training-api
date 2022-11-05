@@ -1,23 +1,35 @@
+const sequelize = require('sequelize');
 const { Sequelize } = require('sequelize');
-const sequelize = new Sequelize('db371en0lkmpuq', 'ukhkagdgljhpxb', 'c5da387617004c6e46c6d9e6e7dffa9e178477e374526ea7d936c7c9cbcd9d0d', {
-    host: 'ec2-34-193-44-192.compute-1.amazonaws.com',
-    dialect: 'postgres',
-    ssl: true,
-    protocol: "postgres",
+require('dotenv').config();
 
-    logging: true,
-    dialectOptions: {
-        ssl: {
-            require: true,
-            rejectUnauthorized: false 
-        }
-    }
-});
 
 class Db {
+
+    sequelize = new Sequelize(
+        process.env.DB_DATABASE, 
+        process.env.DB_USER, 
+        process.env.DB_PASSWORD, {
+            host: process.env.DB_HOST,
+            dialect: 'postgres',
+            ssl: true,
+            protocol: "postgres",
     
-    constructor(){
-        this.runTest(sequelize);
+            logging: true,
+            dialectOptions: {
+                ssl: {
+                    require: true,
+                    rejectUnauthorized: false 
+                }
+            }
+        }
+    );
+    
+    constructor(){        
+        this.runTest(this.sequelize);
+    }
+
+    database(){
+        return this.sequelize
     }
     
     async runTest(sequelize){
@@ -30,4 +42,7 @@ class Db {
     }
 
 }
-module.exports = {Db, sequelize}; 
+
+let database = new Db().sequelize;
+
+module.exports = {Db, database }; 

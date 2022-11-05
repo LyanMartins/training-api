@@ -1,10 +1,13 @@
 
 const { Sequelize, DataTypes, Model } = require('sequelize');
-const { sequelize }  = require('./../../../../../config/db');
+const { Db }  = require('./../../../../../config/db');
 
-class Item extends Model {}
+class User extends Model {}
 
-Item.init({
+const sequelize = new Db().sequelize;
+
+
+User.init({
 	name: { type: DataTypes.STRING },
 	email: { type: DataTypes.STRING },
 	password:  { type: DataTypes.STRING },
@@ -22,4 +25,4 @@ Item.init({
     updatedAt: "modifield"
 });
 
-module.exports = Item;
+module.exports = User;
