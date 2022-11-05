@@ -1,8 +1,6 @@
 
 const { Sequelize, DataTypes, Model } = require('sequelize');
-const {  Db }  = require('./../../../../../config/db');
-
-const sequelize = new Db().database();
+const { sequelize }  = require('./../../../../../config/db');
 
 
 class Exercises extends Model {}
