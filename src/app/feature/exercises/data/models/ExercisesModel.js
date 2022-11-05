@@ -5,6 +5,7 @@ const { sequelize }  = require('./../../../../../config/db');
 class Exercises extends Model {}
 
 Exercises.init({
+    id:  { type: DataTypes.UUID, primaryKey: true },
     workoutId : { type: DataTypes.UUID, field: 'workout_id' },
     title: { type: DataTypes.STRING },
     serie:  { type: DataTypes.INTEGER},
@@ -21,5 +22,6 @@ Exercises.init({
     createdAt: "created",
     updatedAt: "modifield"
 });
+
 
 module.exports = Exercises;

@@ -23,20 +23,12 @@ class ExercisesController {
     get = async function (req, res) 
     {
         try {
-            res.json(await new this.getExercises().get(req.params.exercisesId));
+            res.json(await new this.getExercises().execute(req.params.exercisesId));
         } catch (e) {
             res.status(400).json(e.message);
         }
     }
 
-    list = async function(req, res) 
-    {
-        try {
-            console.log(req.params.workoutId)
-        } catch (e) {
-            res.status(400).json(e.message);
-        }
-    }
 
 }
 

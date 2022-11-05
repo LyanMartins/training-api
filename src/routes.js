@@ -29,6 +29,11 @@ class Routes extends Router {
             .get( (req, res) => {
                 new this.Controller.WorkoutController().get(req, res);
             });
+        
+        routes.route('/workout/:workoutId/exercises')
+            .get(( req, res ) => {
+                new this.Controller.WorkoutController().listExercisesByWorkoutId(req, res)
+            })
 
         routes.route('/exercises/:exercisesId?')
             .post( (req, res) => {

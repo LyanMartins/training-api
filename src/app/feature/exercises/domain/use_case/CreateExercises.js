@@ -6,8 +6,8 @@ class CreateExercises {
         this.exercisesRepository = ExercisesRepository;
     }
     
-    execute = async function(params, workoutId) {
-
+    execute = async function(params, workoutId) 
+    {
         let validate = await this.validated(params, workoutId);
 
         if(!validate) throw new Error('Fields is invalid');
@@ -21,8 +21,6 @@ class CreateExercises {
 
         return true;
     }
-
-
 
 }
 

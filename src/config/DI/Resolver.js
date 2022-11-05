@@ -24,6 +24,7 @@ diContainer.register('WorkoutEntity', require('../../app/feature/workout/domain/
 diContainer.register('WorkoutPresent', require('../../app/feature/workout/domain/present/WorkoutPresent'));
 diContainer.register('CreateWorkout', require('../../app/feature/workout/domain/use_case/CreateWorkout'));
 diContainer.register('GetWorkout', require('../../app/feature/workout/domain/use_case/GetWorkout'));
+diContainer.register('ListExercisesByWorkout', require('../../app/feature/workout/domain/use_case/ListExercisesByWorkout'));
 
 // Exercises
 // Workout

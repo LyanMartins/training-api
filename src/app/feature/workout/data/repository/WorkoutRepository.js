@@ -1,20 +1,38 @@
+const Exercises = require("../../../exercises/data/models/ExercisesModel");
+
 class WorkoutRepository {
 
     constructor(WorkoutModel = get('WorkoutModel')) {
         this.workoutModel = WorkoutModel;
     }
 
-    create = function(workout) {
+    create = function(workout) 
+    {
         workout.created = Date.now();
         console.log(workout);
         return this.workoutModel.create(workout);
     }
 
-    getWorkoutById = function(workoutId) {
+    getWorkoutById = function(workoutId) 
+    {
         return this.workoutModel.findOne({
             where: {
                 id: workoutId
             }
+        })
+    }
+
+    listExercisesByWorkoutId = function(workoutId)
+    {
+        return this.workoutModel.findAll(
+        {
+            include:{
+                model: Exercises,
+            },
+            where: {
+                id: workoutId
+            }, 
+
         })
     }
 }

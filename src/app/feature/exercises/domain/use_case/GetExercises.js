@@ -25,3 +25,5 @@ class GetExercises
         return true
     }
 }
+
+module.exports = GetExercises;
