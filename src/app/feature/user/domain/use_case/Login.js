@@ -1,7 +1,11 @@
 class Login {
 
-    constructor( UserRepository = get('UserRepository')) {
+    constructor( 
+        UserRepository = get('UserRepository'),
+        jwt = require("jsonwebtoken")) 
+    {
         this.userRepository = UserRepository;
+        this.jwt = jwt;
     }
 
     execute = async function(params) {
@@ -10,6 +14,8 @@ class Login {
         
         if(!user) throw new Error('User is not Authorized', 403);
 
+        user['token'] = this.jwt.sign({user}, 'shhhhh');
+        
         return user;
     }
 

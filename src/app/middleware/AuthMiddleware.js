@@ -1,10 +1,9 @@
-const jwt = require("jsonwebtoken");
 
 class AuthMiddeware {
 
-    constructor(req, res, nex)
+    constructor(jwt = require("jsonwebtoken"))
     {
-        
+        this.jwt = jwt;
     }
 
     auth = function(req, res, next) 
@@ -25,7 +24,7 @@ class AuthMiddeware {
 
     static verifyToken = function(token) 
     {
-        return jwt.verify(token,'secretkey', (error, data) => {
+        return this.jwt.verify(token,'secretkey', (error, data) => {
             return (error)? error: data;
         })
     }

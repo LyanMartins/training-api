@@ -14,7 +14,8 @@ class UserRepository {
             where: {
                 email: email,
                 password: password
-            }
+            },
+            raw: true,
         });
         
         return user;
