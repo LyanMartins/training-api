@@ -23,7 +23,6 @@ class Login {
     createTokenBearer = function(user) 
     {
         return `Bearer ${this.jwt.sign({user}, 'shhhhh')}`;
-        
     }
 
 }
