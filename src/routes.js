@@ -12,31 +12,36 @@ class Routes extends Router {
 
     prepareRoutes = function() {
         
-        routes.route('/user/:token?')
-            .post( (req, res) => {
-                new this.Controller.UserController().create(req, res);
-            });
-            
         routes.route('/login')
-            .get( (req, res) => {
+            .post((req, res) => {
                 new this.Controller.UserController().login(req, res);
+            });
+
+        routes.route('/user/:token?')
+            .post( new AuthMiddeware().auth, (req, res) => {
+                new this.Controller.UserController().create(req, res);
             });
         
         routes.route('/workout/:token?')
-            .post( (req, res) => {
+            .post( new AuthMiddeware().auth, (req, res) => {
                 new this.Controller.WorkoutController().create(req, res);
             })
-            .get( (req, res) => {
+            .get( new AuthMiddeware().auth, (req, res) => {
                 new this.Controller.WorkoutController().get(req, res);
             });
         
+        routes.route('/workout/user/:userId/list')
+            .get(new AuthMiddeware().auth, (req, res) => {
+                new this.Controller.WorkoutController().list(req, res)
+            })
+        
         routes.route('/workout/:workoutId/exercises')
-            .get(( req, res ) => {
+            .get(new AuthMiddeware().auth ,( req, res ) => {
                 new this.Controller.WorkoutController().listExercisesByWorkoutId(req, res)
             })
 
         routes.route('/exercises/:exercisesId?')
-            .post( (req, res) => {
+            .post( new AuthMiddeware().auth, (req, res) => {
                 new this.Controller.ExercisesController().create(req, res);
             })
             .get( (req, res) => {
@@ -45,7 +50,6 @@ class Routes extends Router {
 
         routes.route('/health')
             .get( new AuthMiddeware().auth, (req, res) => {
-                
                 return res.send(req.user);
             })
 

@@ -22,6 +22,16 @@ class WorkoutRepository {
         })
     }
 
+
+    listWorkoutByUserId = function(userId) 
+    {
+        return this.workoutModel.findAll({
+            where: {
+                user_id: userId
+            }
+        })
+    }
+
     listExercisesByWorkoutId = function(workoutId)
     {
         return this.workoutModel.findAll(

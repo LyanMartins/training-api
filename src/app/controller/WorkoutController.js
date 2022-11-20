@@ -3,12 +3,14 @@ class WorkoutController {
     constructor(
         createWorkout = get('CreateWorkout'),
         getWorkout = get('GetWorkout'),
+        listWorkout = get('ListWorkout'),
         listExercisesByWorkout = get('ListExercisesByWorkout'),
         workoutPresent = get('WorkoutPresent')
     ) 
     {
         this.workoutPresent = workoutPresent;
         this.getWorkout = getWorkout;
+        this.listWorkout = listWorkout;
         this.listExercisesByWorkout = listExercisesByWorkout;
         this.createWorkout = createWorkout;
         
@@ -25,6 +27,15 @@ class WorkoutController {
         try{
             let workout = await new this.getWorkout().execute(req.params.token);
             res.json(workout);
+        }catch(e) {
+            res.status(400).json(e.message);
+        }
+    }
+    
+    list = async function(req, res) {
+        try{
+            let workouts = await new this.listWorkout().execute(req.params.userId);
+            res.json(workouts);
         }catch(e) {
             res.status(400).json(e.message);
         }

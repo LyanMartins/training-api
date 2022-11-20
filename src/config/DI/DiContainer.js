@@ -27,8 +27,8 @@ class DiContainer {
       this.dependencies[name] = factory && this.inject(factory);
       if (!this.dependencies[name]) throw new Error(`Cannot find module ${name}`);
     }
- 
-    return this.dependencies[name];
+    //console.log(this.dependencies[name]);
+    return require(this.dependencies[name]);
   }
  
   inject = (factory) => {

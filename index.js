@@ -14,6 +14,7 @@ class Init {
         new Db();
         //console.log(resolver);
         app.use(express.json())
+        console.log(Routes)
         app.use('/', new Routes(resolver));
 
         app.listen(process.env.PORT || 3000, () => {
