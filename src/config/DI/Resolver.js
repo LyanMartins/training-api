@@ -28,7 +28,6 @@ diContainer.register('ListWorkout', '../../app/feature/workout/domain/use_case/L
 diContainer.register('ListExercisesByWorkout', '../../app/feature/workout/domain/use_case/ListExercisesByWorkout');
 
 // Exercises
-// Workout
 diContainer.register('ExercisesController', '../../app/controller/ExercisesController');
 diContainer.register('ExercisesRepository', '../../app/feature/exercises/data/repository/ExercisesRepository');
 diContainer.register('ExercisesModel', '../../app/feature/exercises/data/models/ExercisesModel');
@@ -37,12 +36,22 @@ diContainer.register('ExercisesPresent', '../../app/feature/exercises/domain/pre
 diContainer.register('CreateExercises', '../../app/feature/exercises/domain/use_case/CreateExercises');
 diContainer.register('GetExercises', '../../app/feature/exercises/domain/use_case/GetExercises');
 
+// Running
+diContainer.register('RunningController', '../../app/controller/RunningController');
+diContainer.register('RunningRepository', '../../app/feature/running/data/repository/RunningRepository');
+diContainer.register('RunningModel', '../../app/feature/running/data/models/RunningModel');
+diContainer.register('RunningEntity', '../../app/feature/running/domain/entity/RunningEntity');
+diContainer.register('RunningPresent', '../../app/feature/running/domain/present/RunningPresent');
+diContainer.register('CreateRunning', '../../app/feature/running/domain/use_case/CreateRunning');
+diContainer.register('GetRunning', '../../app/feature/running/domain/use_case/GetRunning');
+
 const Routes = diContainer.get('Routes');
 
 const Controller = {
     UserController: diContainer.get('UserController'),
     WorkoutController: diContainer.get('WorkoutController'),
-    ExercisesController: diContainer.get('ExercisesController')
+    ExercisesController: diContainer.get('ExercisesController'),
+    RunningController: diContainer.get('RunningController')
 }
 
 get = function(dependence) {

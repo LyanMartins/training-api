@@ -34,7 +34,7 @@ class WorkoutRepository {
 
     listExercisesByWorkoutId = function(workoutId)
     {
-        return this.workoutModel.findAll(
+        return this.workoutModel.findOne(
         {
             include:{
                 model: Exercises,

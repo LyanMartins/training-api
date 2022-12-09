@@ -53,6 +53,11 @@ class Routes extends Router {
                 return res.send(req.user);
             })
 
+        routes.route('/running/:userId')
+            .get(new AuthMiddeware().auth, (req, res) => {
+                new this.Controller.RunningController().get(req, res)
+            })
+
         return routes;
         
     }
