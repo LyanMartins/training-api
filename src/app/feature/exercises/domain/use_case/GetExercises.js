@@ -15,7 +15,6 @@ class GetExercises
         let exercise = new this.exercisesRepository().getExercisesById(exercisesId);
 
         return exercise;
-
     }
 
     validated = function(execisesId)

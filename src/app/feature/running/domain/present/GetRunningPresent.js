@@ -1,6 +1,5 @@
 class GetRunningPresent {
-
-   
+ 
 
     constructor(input) {
         

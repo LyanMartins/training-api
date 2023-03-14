@@ -17,7 +17,7 @@ Running.init({
     sequelize,
     timestamps: true,
     raw: true,
-    tableName: 'running_training',
+    tableName: 'running_trainings',
     modelName: 'Running', // We need to choose the model name
     createdAt: "created",
     updatedAt: "modifield"

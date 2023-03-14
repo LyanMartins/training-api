@@ -45,7 +45,7 @@ class WorkoutController {
     {
         try {
             console.log(req.params.workoutId)
-            let execises = await new this.listExercisesByWorkout().execute(req.params.workoutId);
+            let execises = new this.listExercisesByWorkout().execute(req.params.workoutId);
             res.json(execises);
         } catch (e) {
             res.status(400).json(e.message);
