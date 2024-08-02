@@ -5,6 +5,7 @@ const routes = require('express').Router();
 class Routes extends Router {
     
     constructor(Resolver){
+        console.log("oi");
         super();
         this.Controller = Resolver.Controller;
         return this.prepareRoutes()
@@ -14,6 +15,7 @@ class Routes extends Router {
         
         routes.route('/login')
             .post((req, res) => {
+                console.log("login");
                 new this.Controller.UserController().login(req, res);
             });
 

@@ -9,10 +9,11 @@ require('dotenv').config();
 class Init {
 
     constructor() {
+        console.log("teste");
         const app = express();
         app.use(cors())
         new Db();
-        //console.log(resolver);
+        // console.log(resolver);
         app.use(express.json())
         console.log(Routes)
         app.use('/', new Routes(resolver));

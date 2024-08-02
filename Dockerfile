@@ -2,7 +2,7 @@
 FROM node:14
 
 # Defina o diretório de trabalho dentro do contêiner
-WORKDIR /usr/src/app
+WORKDIR /app
 
 # Copie o arquivo package.json e package-lock.json
 COPY package*.json ./
@@ -10,5 +10,14 @@ COPY package*.json ./
 # Instale as dependências
 RUN npm install
 
-# Copie o restante dos arquivos da aplicação
+RUN npm update
+
 COPY . .
+
+# Copie o restante dos arquivos da aplicação
+
+# Exponha a porta que a aplicação irá rodar
+EXPOSE 3000
+
+# Comando para iniciar a aplicação
+CMD ["node", "index.js"]
