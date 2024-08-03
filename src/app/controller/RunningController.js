@@ -10,7 +10,11 @@ class RunningController {
 
     get = async function (req, res) 
     {
-        res.json(await new this.getRunning().execute(req.params.userId));
+        try {
+            res.json(await new this.getRunning().execute(req.params.userId).catch(console.log("erro")));
+        } catch (error) {
+            console.error('Erro capturado:', error);
+        }
         
     }
 

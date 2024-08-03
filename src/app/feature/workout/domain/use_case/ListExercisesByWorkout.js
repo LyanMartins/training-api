@@ -12,8 +12,9 @@ class ListExercisesByWorkout
         
         if(!validated) throw new Error('Fields are invalid!');
 
-        let exercise = new this.workoutRepository().listExercisesByWorkoutId(workoutId);
-
+        console.log("aqio: "+workoutId);
+        let exercise = await new this.workoutRepository().listExercisesByWorkoutId(workoutId);
+        console.log(exercise);
         return exercise;
     }
 

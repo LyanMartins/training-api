@@ -20,4 +20,5 @@ COPY . .
 EXPOSE 3000
 
 # Comando para iniciar a aplicação
-CMD ["node", "index.js"]
+# ENTRYPOINT ["nodemon", "/usr/src/app/index.js"]  
+CMD ["npm", "run", "dev"]

@@ -12,7 +12,6 @@ Running.init({
 	created: { type: DataTypes.DATE },
 	modifield: { type: DataTypes.DATE },
 	deleted: { type: DataTypes.DATE } ,	
-    
   },{
     sequelize,
     timestamps: true,

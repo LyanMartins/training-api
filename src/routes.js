@@ -50,14 +50,15 @@ class Routes extends Router {
                 new this.Controller.ExercisesController().get(req, res);
             });
 
-        routes.route('/health')
-            .get( new AuthMiddeware().auth, (req, res) => {
-                return res.send(req.user);
-            })
-
         routes.route('/running/:userId')
             .get(new AuthMiddeware().auth, (req, res) => {
                 new this.Controller.RunningController().get(req, res)
+            })
+
+        routes.route('/health')
+            .get((req, res) => {
+                console.log("health");
+                return res.send(req.user);
             })
 
         return routes;
