@@ -72,7 +72,6 @@ INSERT INTO running_trainings (id, workout_id, start_date, end_date, created, mo
 -- Criando a tabela body_measurements com todas as colunas e comentários
 CREATE TABLE body_measurements (
     id UUID PRIMARY KEY,
-    user_id UUID REFERENCES users(id) ON DELETE CASCADE,
     height DECIMAL(5,2),
     weight DECIMAL(5,2),
     neck DECIMAL(5,2),
@@ -129,3 +128,9 @@ VALUES('e8098c1a-f86e-11da-bd1a-00112444be1a', 'b8098c1a-f86e-11da-bd1a-00112444
  59.50, 61.50, 35.50, 34.00, 35.50, 36.00, 28.50, 28.50, 5.47, 24.46, 18.26, '2023-01-01 00:00:00', '2023-01-01 00:00:00', NULL),
 ('e8098c1a-f86e-11da-bd1a-00112444be1b', 'b8098c1a-f86e-11da-bd1a-00112444be1b', 170.00, 70.00, 38.00, 100.00, 80.00, 85.00, 85.00, 100.00, 
  60.00, 62.00, 36.00, 35.00, 36.00, 37.00, 29.00, 29.00, 6.00, 25.00, 20.00, '2023-02-01 00:00:00', '2023-02-01 00:00:00', NULL);
+
+CREATE TABLE user_body_measurements (
+    user_id UUID REFERENCES users(id) ON DELETE CASCADE,
+    body_measurement_id UUID REFERENCES body_measurements(id) ON DELETE CASCADE,
+    PRIMARY KEY (user_id, body_measurement_id)
+);
