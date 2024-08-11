@@ -14,7 +14,6 @@ class GetWorkout {
 
         let workout = await new this.workoutRepository().getWorkoutById(workoutId);
 
-
         if(!workout) throw new Error('Workout not found');
 
         return workout;

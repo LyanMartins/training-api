@@ -22,7 +22,6 @@ class WorkoutRepository {
         })
     }
 
-
     listWorkoutByUserId = function(userId) 
     {
         return this.workoutModel.findAll({
